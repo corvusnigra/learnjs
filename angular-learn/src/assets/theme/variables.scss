@@ -1,0 +1,17 @@
+// import here custom color.scss, font.scss, etc to redefine default materializecss variables
+
+
+// Fonts
+// ==========================================================================
+
+// correct font path
+$roboto-font-path: "~materialize-css/fonts/roboto/";
+$mdi-font-path: "~mdi/fonts/";
+
+
+// add color mixins
+@import '~materialize-css/sass/components/color';
+
+// set themes primary color
+$primary-color: color("cyan", "lighten-1") !default;
+$secondary-color: color("cyan", "darken-3") !default;
