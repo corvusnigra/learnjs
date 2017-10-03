@@ -1,32 +1,57 @@
 <div class="row">
     <div class="col s12">
-        <form [formGroup]="customForm">
-            <div class="input-field col s6">
-                <input  id="first_name"
-                        type="text"
-                        class="validate"
-                        formControlName="username"
-                >
-                <label for="first_name">First Name</label>
+        <form [formGroup]="customForm" (ngSubmit)="onSubmit()">
+            <div formGroupName="userData">
+                <div class="input-field col s6">
+                    <input  id="first_name"
+                            type="text"
+                            class="validate"
+                            formControlName="username"
+                    >
+                    <label for="first_name">First Name</label>
+                    <span *ngIf="!customForm.get('userData.username').valid && customForm.get('userData.username').touched">Это поле обязательно</span>
+                    <span *ngIf="customForm.get('userData.username').hasError('isForbiden') && customForm.get('userData.username').touched">Эти имена под запретом!</span>
+                </div>
+                <div class="input-field col s6">
+                    <input id="last_name"
+                           type="email"
+                           class="validate"
+                           formControlName="email"
+                    >
+                    <label for="last_name">Email</label>
+                    <span *ngIf="customForm.get('userData.email').hasError('validEmail') && customForm.get('userData.email').touched">Это неверный email</span>
+                </div>
+
             </div>
-            <div class="input-field col s6">
-                <input id="last_name"
-                       type="password"
-                       class="validate"
-                       formControlName="email"
-                >
-                <label for="last_name">Password</label>
+            <div class="row">
+                <div class="input-field col s12" *ngFor="let gender of genders; let i = index">
+                    <p>
+                        <input [value]="gender"
+                               type="radio"
+                               formControlName="gender"
+                               id="radio-{{i}}"
+                        />
+                        <label for="radio-{{i}}">{{gender}}</label>
+                    </p>
+                </div>
             </div>
-            <div class="input-field col s12" *ngFor="let gender of genders; let i = index">
-                <p>
-                    <input [value]="gender"
-                           type="radio"
-                           formControlName="gender"
-                           id="radio-{{i}}"
-                    />
-                    <label for="radio-{{i}}">{{gender}}</label>
-                </p>
+
+            <div class="row" formArrayName="hobbies">
+                <button class="waves-effect waves-light btn" (click)="addHobby()" type="button" >Добавить хобби</button>
+                <div class="input-field col s12" *ngFor ="let control of customForm.get('hobbies').controls; let i = index">
+                    <input id="last_name-{{i}}"
+                           type="email"
+                           class="validate"
+                           [formControlName]="i"
+                    >
+                    <label for="last_name-{{i}}">Hobby</label>
+                </div>
             </div>
+
+            <div class="row">
+                <div class="col s12"><input class="waves-effect waves-light btn" value="submit" type="submit"></div>
+            </div>
+
         </form>
     </div>
 </div>
