@@ -9,13 +9,21 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { Form1Component } from './views/form-1/form-1.component';
 import { SigninComponent } from './views/signin/signin.component';
 import { SignupComponent } from './views/signup/signup.component';
+import { RoutingComponent } from './views/routing/routing.component';
+import { UsersComponent } from './views/routing/users/users.component';
+import { ServersComponent } from './views/routing/servers/servers.component';
+import { UserComponent } from './views/routing/user/user.component';
 
 @NgModule({
     declarations: [
         AppComponent,
         Form1Component,
         SigninComponent,
-        SignupComponent
+        SignupComponent,
+        RoutingComponent,
+        UsersComponent,
+        ServersComponent,
+        UserComponent
     ],
     imports: [
         BrowserModule,
