@@ -13,8 +13,8 @@ export class UsersComponent implements OnInit {
   ngOnInit() {
   }
 
-  onLoadServer(){
-    this.router.navigate(['routing','servers'])
+  onLoadServer(id: number){
+    this.router.navigate(['routing','users', id, 'Max'], {queryParams: {allowEdit: 1}, fragment: 'loading'})
   }
 
 }

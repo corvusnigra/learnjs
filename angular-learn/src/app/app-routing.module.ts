@@ -6,6 +6,7 @@ import {RoutingComponent} from "./views/routing/routing.component";
 import {UsersComponent} from "./views/routing/users/users.component";
 import {ServersComponent} from "./views/routing/servers/servers.component";
 import {UserComponent} from "./views/routing/user/user.component";
+import {PageNotFoundComponent} from "./views/page-not-found/page-not-found.component";
 
 
 const routes: Routes = [
@@ -17,8 +18,8 @@ const routes: Routes = [
         {path: 'users/:id/:name', component: UserComponent},
         {path: 'servers', component: ServersComponent}
     ]},
-
-
+    {path: 'page-not-found', component: PageNotFoundComponent},
+    {path: '**', redirectTo: 'page-not-found'}
 ];
 
 @NgModule({

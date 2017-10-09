@@ -13,6 +13,8 @@ export class UserComponent implements OnInit {
   constructor( private route: ActivatedRoute ) { }
 
   ngOnInit() {
+    console.log(this.route.snapshot.queryParams);
+    console.log(this.route.snapshot.fragment);
     this.user = {
       id: this.route.snapshot.params['id'],
       name: this.route.snapshot.params['name']

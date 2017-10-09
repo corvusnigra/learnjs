@@ -13,6 +13,7 @@ import { RoutingComponent } from './views/routing/routing.component';
 import { UsersComponent } from './views/routing/users/users.component';
 import { ServersComponent } from './views/routing/servers/servers.component';
 import { UserComponent } from './views/routing/user/user.component';
+import { PageNotFoundComponent } from './views/page-not-found/page-not-found.component';
 
 @NgModule({
     declarations: [
@@ -23,7 +24,8 @@ import { UserComponent } from './views/routing/user/user.component';
         RoutingComponent,
         UsersComponent,
         ServersComponent,
-        UserComponent
+        UserComponent,
+        PageNotFoundComponent
     ],
     imports: [
         BrowserModule,
