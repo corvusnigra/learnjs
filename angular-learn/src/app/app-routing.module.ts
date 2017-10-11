@@ -7,6 +7,7 @@ import {UsersComponent} from "./views/routing/users/users.component";
 import {ServersComponent} from "./views/routing/servers/servers.component";
 import {UserComponent} from "./views/routing/user/user.component";
 import {PageNotFoundComponent} from "./views/page-not-found/page-not-found.component";
+import {AuthGuard} from "./auth-guard.service";
 
 
 const routes: Routes = [
@@ -16,7 +17,7 @@ const routes: Routes = [
     {path: 'routing', component: RoutingComponent, children: [
         {path: 'users', component: UsersComponent},
         {path: 'users/:id/:name', component: UserComponent},
-        {path: 'servers', component: ServersComponent}
+        {path: 'servers',canActivate: [AuthGuard], component: ServersComponent}
     ]},
     {path: 'page-not-found', component: PageNotFoundComponent},
     {path: '**', redirectTo: 'page-not-found'}

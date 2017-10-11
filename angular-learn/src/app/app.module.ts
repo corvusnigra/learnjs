@@ -14,6 +14,8 @@ import { UsersComponent } from './views/routing/users/users.component';
 import { ServersComponent } from './views/routing/servers/servers.component';
 import { UserComponent } from './views/routing/user/user.component';
 import { PageNotFoundComponent } from './views/page-not-found/page-not-found.component';
+import {AuthGuard} from "./auth-guard.service";
+import {AuthService} from "./auth.service";
 
 @NgModule({
     declarations: [
@@ -36,7 +38,7 @@ import { PageNotFoundComponent } from './views/page-not-found/page-not-found.com
         FormsModule,
         ReactiveFormsModule
     ],
-    providers: [],
+    providers: [AuthGuard, AuthService],
     bootstrap: [AppComponent]
 })
 export class AppModule {
